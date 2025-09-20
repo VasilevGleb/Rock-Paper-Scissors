@@ -2,11 +2,11 @@ using System;
 
 Console.WriteLine("Welcome to the game!");
 
-Console.WriteLine("Choose: Schäre, Stein, Papier");
+Console.WriteLine("Choose: Rock, Scissors, Paper");
 string yourChoice = Console.ReadLine();
 
 Random action = new Random();
-string[] option = { "Schäre", "Stein", "Papier" };
+string[] option = { "Rock", "Scissors", "Paper" };
 int number = action.Next(0, 3);
 string computerChoice = option[number];
 
@@ -18,15 +18,15 @@ if (yourChoiceLower == computerChoiceLower)
 {
     Console.WriteLine("It's a tie!");
 }
-else if ((yourChoiceLower == "schäre" && computerChoiceLower == "papier") ||
-                (yourChoiceLower == "stein" && computerChoiceLower == "schäre") ||
-                (yourChoiceLower == "papier" && computerChoiceLower == "stein"))
+else if ((yourChoiceLower == "scissors" && computerChoiceLower == "paper") ||
+                (yourChoiceLower == "rock" && computerChoiceLower == "scissors") ||
+                (yourChoiceLower == "paper" && computerChoiceLower == "rock"))
 {
     Console.WriteLine("You win!");
 }
-else if ((yourChoiceLower == "schäre" && computerChoiceLower == "stein") ||
-                (yourChoiceLower == "stein" && computerChoiceLower == "papier") ||
-                (yourChoiceLower == "papier" && computerChoiceLower == "schäre"))
+else if ((yourChoiceLower == "scissors" && computerChoiceLower == "rock") ||
+                (yourChoiceLower == "rock" && computerChoiceLower == "paper") ||
+                (yourChoiceLower == "paper" && computerChoiceLower == "scissors"))
 {
     Console.WriteLine("You lose!");
 }
