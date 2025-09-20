@@ -2,15 +2,28 @@ using System;
 
 Console.WriteLine("Welcome to the game!");
 
+string[] option = { "Rock", "Scissors", "Paper" };
 Console.WriteLine("Choose: Rock, Scissors, Paper");
 string yourChoice = Console.ReadLine();
+string yourChoiceLower = yourChoice.ToLower();
+
+// Validate user input (проверка верности ввода)
+while (true)
+{
+    if (Array.Exists(option, x => x.ToLower() == yourChoiceLower))
+    {
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Invalid input.\nPlease choose: Rock, Scissors, Paper");
+    
+    }
+}
 
 Random action = new Random();
-string[] option = { "Rock", "Scissors", "Paper" };
 int number = action.Next(0, 3);
 string computerChoice = option[number];
-
-string yourChoiceLower = yourChoice.ToLower();
 string computerChoiceLower = computerChoice.ToLower();
 
 Console.WriteLine($"Computer chose: {computerChoice}");
@@ -29,10 +42,6 @@ else if ((yourChoiceLower == "scissors" && computerChoiceLower == "rock") ||
                 (yourChoiceLower == "paper" && computerChoiceLower == "scissors"))
 {
     Console.WriteLine("You lose!");
-}
-else
-{
-    Console.WriteLine("Invalid input. Please try again.");
 }
 
 Console.WriteLine("Thanks for playing. Goodbye!");
